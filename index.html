@@ -152,6 +152,80 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-奖励菜单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2023/08/01/%E5%A5%96%E5%8A%B1%E8%8F%9C%E5%8D%95/">个人笔记</a>
+    </h1>
+  
+
+        
+        <a href="2023/08/01/%E5%A5%96%E5%8A%B1%E8%8F%9C%E5%8D%95/" class="archive-article-date">
+  	<time datetime="2023-08-01T14:05:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<h1 id="如何增加玩家的在线时间"><a href="#如何增加玩家的在线时间" class="headerlink" title="如何增加玩家的在线时间"></a>如何增加玩家的在线时间</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">val time &#x3D; data.get(&quot;time&quot;).cint
+   data.set(&quot;time&quot;, time + 1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="获取玩家的数据容器对象，并将其存储在-data-变量中，从数据容器中获取名为-“time”-的值，并将其转换为整数类型，将-“time”-的值增加-1，并将新的值存储回数据容器中"><a href="#获取玩家的数据容器对象，并将其存储在-data-变量中，从数据容器中获取名为-“time”-的值，并将其转换为整数类型，将-“time”-的值增加-1，并将新的值存储回数据容器中" class="headerlink" title="获取玩家的数据容器对象，并将其存储在 data 变量中，从数据容器中获取名为 “time” 的值，并将其转换为整数类型，将 “time” 的值增加 1，并将新的值存储回数据容器中"></a>获取玩家的数据容器对象，并将其存储在 data 变量中，从数据容器中获取名为 “time” 的值，并将其转换为整数类型，将 “time” 的值增加 1，并将新的值存储回数据容器中</h2><h1 id="如何将配置文件中的player替换成玩家名称"><a href="#如何将配置文件中的player替换成玩家名称" class="headerlink" title="如何将配置文件中的player替换成玩家名称"></a>如何将配置文件中的player替换成玩家名称</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">val playerCommand &#x3D; command.replace(&quot;%player%&quot;,player.name)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="使用-command-replace-“-player-”-player-name-替换命令中的-player-占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在-playerCommand-变量中"><a href="#使用-command-replace-“-player-”-player-name-替换命令中的-player-占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在-playerCommand-变量中" class="headerlink" title="使用 command.replace(“%player%”, player.name) 替换命令中的 %player% 占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在 playerCommand 变量中"></a>使用 command.replace(“%player%”, player.name) 替换命令中的 %player% 占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在 playerCommand 变量中</h2><h1 id="零点重置时间"><a href="#零点重置时间" class="headerlink" title="零点重置时间"></a>零点重置时间</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">val currentDate &#x3D; LocalDate.now()
+
+    val computerDate &#x3D; getComputerDate()
+
+    val lastResetDate &#x3D; LocalDate.parse(computerDate,DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="使用-LocalDate-now-函数获取当前日期对象-currentDate-获取计算机的日期信息-使用-LocalDate-parse-computerDate-DateTimeFormatter-ofPattern-“yyyy-MM-dd”-将计算机日期字符串解析为日期对象，并将其存储在-lastResetDate-变量中。"><a href="#使用-LocalDate-now-函数获取当前日期对象-currentDate-获取计算机的日期信息-使用-LocalDate-parse-computerDate-DateTimeFormatter-ofPattern-“yyyy-MM-dd”-将计算机日期字符串解析为日期对象，并将其存储在-lastResetDate-变量中。" class="headerlink" title="使用 LocalDate.now() 函数获取当前日期对象 currentDate,获取计算机的日期信息,使用 LocalDate.parse(computerDate,DateTimeFormatter.ofPattern(“yyyy-MM-dd”)) 将计算机日期字符串解析为日期对象，并将其存储在 lastResetDate 变量中。"></a>使用 LocalDate.now() 函数获取当前日期对象 currentDate,获取计算机的日期信息,使用 LocalDate.parse(computerDate,DateTimeFormatter.ofPattern(“yyyy-MM-dd”)) 将计算机日期字符串解析为日期对象，并将其存储在 lastResetDate 变量中。</h2><h1 id="如何执行配置文件中的command直接可以发布奖励"><a href="#如何执行配置文件中的command直接可以发布奖励" class="headerlink" title="如何执行配置文件中的command直接可以发布奖励"></a>如何执行配置文件中的command直接可以发布奖励</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">excuteCommand(rewardCommands, player)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>executeCommand</code>函数用于执行奖励指令。每个奖励物品都会指定相应的奖励指令，该函数将遍历奖励指令列表并执行每个指令。同时，它还会将指令执行结果发送给玩家。</p>
+<p>希望本文对设计玩家奖励菜单有所帮助，如果您有任何问题或建议，请随时在评论区留言。感谢阅读！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2023/08/01/%E5%A5%96%E5%8A%B1%E8%8F%9C%E5%8D%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-玩家杀怪统计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -245,80 +319,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="2023/08/01/%E7%8E%A9%E5%AE%B6%E6%9D%80%E6%80%AA%E7%BB%9F%E8%AE%A1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-奖励菜单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2023/08/01/%E5%A5%96%E5%8A%B1%E8%8F%9C%E5%8D%95/">个人笔记</a>
-    </h1>
-  
-
-        
-        <a href="2023/08/01/%E5%A5%96%E5%8A%B1%E8%8F%9C%E5%8D%95/" class="archive-article-date">
-  	<time datetime="2023-08-01T14:05:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h1 id="如何增加玩家的在线时间"><a href="#如何增加玩家的在线时间" class="headerlink" title="如何增加玩家的在线时间"></a>如何增加玩家的在线时间</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">val time &#x3D; data.get(&quot;time&quot;).cint
-   data.set(&quot;time&quot;, time + 1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="获取玩家的数据容器对象，并将其存储在-data-变量中，从数据容器中获取名为-“time”-的值，并将其转换为整数类型，将-“time”-的值增加-1，并将新的值存储回数据容器中"><a href="#获取玩家的数据容器对象，并将其存储在-data-变量中，从数据容器中获取名为-“time”-的值，并将其转换为整数类型，将-“time”-的值增加-1，并将新的值存储回数据容器中" class="headerlink" title="获取玩家的数据容器对象，并将其存储在 data 变量中，从数据容器中获取名为 “time” 的值，并将其转换为整数类型，将 “time” 的值增加 1，并将新的值存储回数据容器中"></a>获取玩家的数据容器对象，并将其存储在 data 变量中，从数据容器中获取名为 “time” 的值，并将其转换为整数类型，将 “time” 的值增加 1，并将新的值存储回数据容器中</h2><h1 id="如何将配置文件中的player替换成玩家名称"><a href="#如何将配置文件中的player替换成玩家名称" class="headerlink" title="如何将配置文件中的player替换成玩家名称"></a>如何将配置文件中的player替换成玩家名称</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">val playerCommand &#x3D; command.replace(&quot;%player%&quot;,player.name)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="使用-command-replace-“-player-”-player-name-替换命令中的-player-占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在-playerCommand-变量中"><a href="#使用-command-replace-“-player-”-player-name-替换命令中的-player-占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在-playerCommand-变量中" class="headerlink" title="使用 command.replace(“%player%”, player.name) 替换命令中的 %player% 占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在 playerCommand 变量中"></a>使用 command.replace(“%player%”, player.name) 替换命令中的 %player% 占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在 playerCommand 变量中</h2><h1 id="零点重置时间"><a href="#零点重置时间" class="headerlink" title="零点重置时间"></a>零点重置时间</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">val currentDate &#x3D; LocalDate.now()
-
-    val computerDate &#x3D; getComputerDate()
-
-    val lastResetDate &#x3D; LocalDate.parse(computerDate,DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="使用-LocalDate-now-函数获取当前日期对象-currentDate-获取计算机的日期信息-使用-LocalDate-parse-computerDate-DateTimeFormatter-ofPattern-“yyyy-MM-dd”-将计算机日期字符串解析为日期对象，并将其存储在-lastResetDate-变量中。"><a href="#使用-LocalDate-now-函数获取当前日期对象-currentDate-获取计算机的日期信息-使用-LocalDate-parse-computerDate-DateTimeFormatter-ofPattern-“yyyy-MM-dd”-将计算机日期字符串解析为日期对象，并将其存储在-lastResetDate-变量中。" class="headerlink" title="使用 LocalDate.now() 函数获取当前日期对象 currentDate,获取计算机的日期信息,使用 LocalDate.parse(computerDate,DateTimeFormatter.ofPattern(“yyyy-MM-dd”)) 将计算机日期字符串解析为日期对象，并将其存储在 lastResetDate 变量中。"></a>使用 LocalDate.now() 函数获取当前日期对象 currentDate,获取计算机的日期信息,使用 LocalDate.parse(computerDate,DateTimeFormatter.ofPattern(“yyyy-MM-dd”)) 将计算机日期字符串解析为日期对象，并将其存储在 lastResetDate 变量中。</h2><h1 id="如何执行配置文件中的command直接可以发布奖励"><a href="#如何执行配置文件中的command直接可以发布奖励" class="headerlink" title="如何执行配置文件中的command直接可以发布奖励"></a>如何执行配置文件中的command直接可以发布奖励</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">excuteCommand(rewardCommands, player)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><code>executeCommand</code>函数用于执行奖励指令。每个奖励物品都会指定相应的奖励指令，该函数将遍历奖励指令列表并执行每个指令。同时，它还会将指令执行结果发送给玩家。</p>
-<p>希望本文对设计玩家奖励菜单有所帮助，如果您有任何问题或建议，请随时在评论区留言。感谢阅读！</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2023/08/01/%E5%A5%96%E5%8A%B1%E8%8F%9C%E5%8D%95/">展开全文 >></a>
         </p>
       
 
