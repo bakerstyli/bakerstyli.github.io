@@ -16,7 +16,7 @@
 <meta property="og:description" content="如何增加玩家的在线时间val time &#x3D; data.get(&quot;time&quot;).cint    data.set(&quot;time&quot;, time + 1) 获取玩家的数据容器对象，并将其存储在 data 变量中，从数据容器中获取名为 “time” 的值，并将其转换为整数类型，将 “time” 的值增加 1，并将新的值存储回数据容器中如何将配置文件中的pl">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-08-01T14:05:29.000Z">
-<meta property="article:modified_time" content="2023-08-07T08:34:34.976Z">
+<meta property="article:modified_time" content="2023-08-08T13:26:54.715Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -175,7 +175,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<h1 id="如何增加玩家的在线时间"><a href="#如何增加玩家的在线时间" class="headerlink" title="如何增加玩家的在线时间"></a>如何增加玩家的在线时间</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">val time &#x3D; data.get(&quot;time&quot;).cint
+<h2 id="如何增加玩家的在线时间"><a href="#如何增加玩家的在线时间" class="headerlink" title="如何增加玩家的在线时间"></a>如何增加玩家的在线时间</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c">val time &#x3D; data.get(&quot;time&quot;).cint
    data.set(&quot;time&quot;, time + 1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h2 id="获取玩家的数据容器对象，并将其存储在-data-变量中，从数据容器中获取名为-“time”-的值，并将其转换为整数类型，将-“time”-的值增加-1，并将新的值存储回数据容器中"><a href="#获取玩家的数据容器对象，并将其存储在-data-变量中，从数据容器中获取名为-“time”-的值，并将其转换为整数类型，将-“time”-的值增加-1，并将新的值存储回数据容器中" class="headerlink" title="获取玩家的数据容器对象，并将其存储在 data 变量中，从数据容器中获取名为 “time” 的值，并将其转换为整数类型，将 “time” 的值增加 1，并将新的值存储回数据容器中"></a>获取玩家的数据容器对象，并将其存储在 data 变量中，从数据容器中获取名为 “time” 的值，并将其转换为整数类型，将 “time” 的值增加 1，并将新的值存储回数据容器中</h2><h1 id="如何将配置文件中的player替换成玩家名称"><a href="#如何将配置文件中的player替换成玩家名称" class="headerlink" title="如何将配置文件中的player替换成玩家名称"></a>如何将配置文件中的player替换成玩家名称</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">val playerCommand &#x3D; command.replace(&quot;%player%&quot;,player.name)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="使用-command-replace-“-player-”-player-name-替换命令中的-player-占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在-playerCommand-变量中"><a href="#使用-command-replace-“-player-”-player-name-替换命令中的-player-占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在-playerCommand-变量中" class="headerlink" title="使用 command.replace(“%player%”, player.name) 替换命令中的 %player% 占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在 playerCommand 变量中"></a>使用 command.replace(“%player%”, player.name) 替换命令中的 %player% 占位符为当前玩家的名字，得到一个玩家特定的命令字符串，并将其存储在 playerCommand 变量中</h2><h1 id="零点重置时间"><a href="#零点重置时间" class="headerlink" title="零点重置时间"></a>零点重置时间</h1><pre class="line-numbers language-c" data-language="c"><code class="language-c">val currentDate &#x3D; LocalDate.now()
