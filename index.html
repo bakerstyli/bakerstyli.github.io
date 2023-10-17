@@ -152,6 +152,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-第一个c语言项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="2023/10/16/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/">学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="2023/10/16/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+  	<time datetime="2023-10-16T14:05:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是c语言"><a href="#什么是c语言" class="headerlink" title="什么是c语言"></a>什么是<em>c</em>语言</h2><p>c语言是一门通用于计算机编程语言,广泛用于底层开发,c语言的设计目标是提供一种能以简易的方式<code>编译</code>、处理低级<code>存储器</code>、产生少量的<code>机器码</code>以及不需要任何运行环境支持便能运行的编程语言。</p>
+<h2 id="c语言是从主函数的第一行开始执行，所以c语言代码中得有main函数-入口"><a href="#c语言是从主函数的第一行开始执行，所以c语言代码中得有main函数-入口" class="headerlink" title="c语言是从主函数的第一行开始执行，所以c语言代码中得有main函数-入口"></a><em>c</em>语言是从主函数的第一行开始执行，所以<em>c</em>语言代码中得有<em>main</em>函数-入口</h2><p><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG22635.jpg"></p>
+<hr>
+<h3 id="关于printf"><a href="#关于printf" class="headerlink" title="关于printf"></a>关于<em>printf</em></h3><p><code>printf</code>-库函数-在屏幕上打印信息,<code>printf</code>的使用,也要打招呼(引用头文件<strong>stdio.h</strong>)<br><code>#include &lt;stdio.h&gt;</code><br><code>int main()</code><br><code>&#123;</code><br><code>printf(&quot;Peter\n&quot;);</code> &#x2F;&#x2F;<code>\n</code>表示换行<br><code>return 0;</code><br><code>&#125;</code></p>
+<hr>
+<p><strong>注意事项！！！</strong><br>1.一个工程中可以有多个.c文件<br>2.但是多个.c文件中只能有一个main函数,<br>  如果出现多个main函数将会出现下图错误<br><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG334.jpg" alt="多个main函数报错情况"></p>
+<hr>
+<p>计算机语言 - 写程序 - 解决生活中的问题</p>
+<h2 id="c语言的数据类型"><a href="#c语言的数据类型" class="headerlink" title="c语言的数据类型"></a><em>c</em>语言的数据类型</h2><p><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG335.jpg" alt="c语言数据类型"></p>
+<h2 id="d-打印整数形式"><a href="#d-打印整数形式" class="headerlink" title="%d 打印整数形式"></a>%d 打印整数形式</h2><p><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG337.jpg" alt="%d打印整数事例"></p>
+<h2 id="如果我们想查看类型或者变量所占空间大小-sizeof"><a href="#如果我们想查看类型或者变量所占空间大小-sizeof" class="headerlink" title="如果我们想查看类型或者变量所占空间大小 - sizeof"></a>如果我们想查看类型或者变量所占空间大小 - sizeof</h2><p><code>sizeof</code>- 关键字 - 操作符 - 计算类型或者变量所占空间的大小(字节)<br><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG338.jpg"><br><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG339.jpg"></p>
+<h2 id="计算机中的单位介绍："><a href="#计算机中的单位介绍：" class="headerlink" title="计算机中的单位介绍："></a>计算机中的单位介绍：</h2><p>计算机中识别二进制,也就是1和0<br>8进制是0-7<br>10进制是0-9<br>计算机中的单位是<em>bit</em><br><code>byte - 字节 = 8bit</code><br><code>kb - 1024byte</code><br><code>mb - 1024 kb</code><br><code>gb - 1024 mb</code><br><code>tb - 1025 gb</code><br><code>pb - 1024 tb</code><br>c语言标准为：<br><code>sizeof(long) &gt;= sizeof(int)</code></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">略</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="2023/10/16/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-多人服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -280,91 +365,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="2023/08/19/%E9%93%81%E5%9D%97%E7%94%B5%E6%A2%AF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-第一个c语言项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="2023/08/19/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/">学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="2023/08/19/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2023-08-19T14:05:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是c语言"><a href="#什么是c语言" class="headerlink" title="什么是c语言"></a>什么是<em>c</em>语言</h2><p>c语言是一门通用于计算机编程语言,广泛用于底层开发,c语言的设计目标是提供一种能以简易的方式<code>编译</code>、处理低级<code>存储器</code>、产生少量的<code>机器码</code>以及不需要任何运行环境支持便能运行的编程语言。</p>
-<h2 id="c语言是从主函数的第一行开始执行，所以c语言代码中得有main函数-入口"><a href="#c语言是从主函数的第一行开始执行，所以c语言代码中得有main函数-入口" class="headerlink" title="c语言是从主函数的第一行开始执行，所以c语言代码中得有main函数-入口"></a><em>c</em>语言是从主函数的第一行开始执行，所以<em>c</em>语言代码中得有<em>main</em>函数-入口</h2><p><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG22635.jpg"></p>
-<hr>
-<h3 id="关于printf"><a href="#关于printf" class="headerlink" title="关于printf"></a>关于<em>printf</em></h3><p><code>printf</code>-库函数-在屏幕上打印信息,<code>printf</code>的使用,也要打招呼(引用头文件<strong>stdio.h</strong>)<br><code>#include &lt;stdio.h&gt;</code><br><code>int main()</code><br><code>&#123;</code><br><code>printf(&quot;Peter\n&quot;);</code> &#x2F;&#x2F;<code>\n</code>表示换行<br><code>return 0;</code><br><code>&#125;</code></p>
-<hr>
-<p><strong>注意事项！！！</strong><br>1.一个工程中可以有多个.c文件<br>2.但是多个.c文件中只能有一个main函数,<br>  如果出现多个main函数将会出现下图错误<br><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG334.jpg" alt="多个main函数报错情况"></p>
-<hr>
-<p>计算机语言 - 写程序 - 解决生活中的问题</p>
-<h2 id="c语言的数据类型"><a href="#c语言的数据类型" class="headerlink" title="c语言的数据类型"></a><em>c</em>语言的数据类型</h2><p><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG335.jpg" alt="c语言数据类型"></p>
-<h2 id="d-打印整数形式"><a href="#d-打印整数形式" class="headerlink" title="%d 打印整数形式"></a>%d 打印整数形式</h2><p><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG337.jpg" alt="%d打印整数事例"></p>
-<h2 id="如果我们想查看类型或者变量所占空间大小-sizeof"><a href="#如果我们想查看类型或者变量所占空间大小-sizeof" class="headerlink" title="如果我们想查看类型或者变量所占空间大小 - sizeof"></a>如果我们想查看类型或者变量所占空间大小 - sizeof</h2><p><code>sizeof</code>- 关键字 - 操作符 - 计算类型或者变量所占空间的大小(字节)<br><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG338.jpg"><br><img src="/images/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/WechatIMG339.jpg"></p>
-<h2 id="计算机中的单位介绍："><a href="#计算机中的单位介绍：" class="headerlink" title="计算机中的单位介绍："></a>计算机中的单位介绍：</h2><p>计算机中识别二进制,也就是1和0<br>8进制是0-7<br>10进制是0-9<br>计算机中的单位是<em>bit</em><br><code>byte - 字节 = 8bit</code><br><code>kb - 1024byte</code><br><code>mb - 1024 kb</code><br><code>gb - 1024 mb</code><br><code>tb - 1025 gb</code><br><code>pb - 1024 tb</code><br>c语言标准为：<br><code>sizeof(long) &gt;= sizeof(int)</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">略</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="2023/08/19/%E7%AC%AC%E4%B8%80%E4%B8%AAc%E8%AF%AD%E8%A8%80%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
         </p>
       
 
