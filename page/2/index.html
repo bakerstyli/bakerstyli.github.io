@@ -152,6 +152,128 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-玩家杀怪统计" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="../../2023/08/01/%E7%8E%A9%E5%AE%B6%E6%9D%80%E6%80%AA%E7%BB%9F%E8%AE%A1/">学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="../../2023/08/01/%E7%8E%A9%E5%AE%B6%E6%9D%80%E6%80%AA%E7%BB%9F%E8%AE%A1/" class="archive-article-date">
+  	<time datetime="2023-08-01T14:05:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>当玩家在游戏中与怪物作战时，统计玩家的击杀数据对于游戏的深度和互动性来说非常重要。在本篇博客中，我们将介绍如何跟踪和展示玩家的杀怪统计数据，并创建一个<strong>统计菜单</strong>供玩家查看。</p>
+<h2 id="1-设置玩家数据库"><a href="#1-设置玩家数据库" class="headerlink" title="1.设置玩家数据库"></a>1.设置玩家数据库</h2><p>在开始统计玩家的击杀数据之前，我们需要先设置一个玩家的数据库。通过设置数据库连接，我们可以将玩家的统计数据持久化存储，并在需要的时候进行读取和更新。</p>
+ <pre class="line-numbers language-c" data-language="c"><code class="language-c">override fun onEnable() &#123; 
+    setupPlayerDatabase(&quot;localhost&quot;,3306,&quot;root&quot;,&quot;root&quot;,&quot;minecraft&quot;)
+    &#x2F;&#x2F;注册命令-打开统计菜单
+    command(&quot;ExampleProjectMenu&quot;)&#123;
+        execute&lt;Player&gt; &#123;sender,_,_, -&gt;
+        openStats(sender)
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在 <code>onEnable</code> 方法中，我们调用 <code>setupPlayerDatabase</code> 函数来设置玩家数据库连接。这里的参数包括数据库的主机地址、端口号、用户名、密码和数据库名称。将这些数据库连接信息配置为符合你的环境。</p>
+<h2 id="2-打开统计菜单"><a href="#2-打开统计菜单" class="headerlink" title="2. 打开统计菜单"></a>2. 打开统计菜单</h2><p>一旦数据库设置完成，我们可以创建一个统计菜单，供玩家随时查看他们的击杀统计数据。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">    fun openStats(Player: Player) &#123;
+        val inventory &#x3D; Bukkit.createInventory(null,27,&quot;统计&quot;)
+       
+        &#x2F;&#x2F;创建一个物品
+        val item &#x3D; ItemStack(Material.NETHER_STSR)
+        val meta &#x3D; item.itemMeta!!
+        meta.setDisplayName(&quot;击杀统计&quot;)
+        meta.lore &#x3D; showStats(player)
+        item.itemMeta &#x3D; meta
+
+        &#x2F;&#x2F;设置物品到指定位置
+        inventory.setItem(13,item)
+        player.openInventory(inventory)
+    &#125;
+&#96;&#96;&#96;   
+
+在 &#96;openStats&#96; 函数中，我们首先创建一个 &#96;Inventory&#96; 对象，并设置其标题为 *&quot;统计&quot;*。然后，我们创建一个代表统计物品的 &#96;ItemStack&#96; 对象。通过设置 &#96;ItemMeta&#96; 的属性，我们可以为物品设置显示名称和附加描述信息，这里我们将其设置为 *&quot;§a§l击杀统计&quot;**，同时使用 &#96;showStats&#96; 函数获取玩家的统计数据，并将其作为物品的附加描述信息。最后，我们将物品添加到统计菜单的指定位置(这里为13，即中间位置)。
+
+## 3. 展示统计数据
+为了展示玩家的击杀统计数据，我们需要编写一个函数来获取并处理这些数据。
+
+&#96;&#96;&#96;c
+    fun showStats(player: Player): ArrayList&lt;String&gt; &#123;
+    val list &#x3D; ArrayList&lt;String&gt;()
+    val stats &#x3D; hashMapOf&lt;String, Int&gt;()
+
+    player.getDataContainer().keys().filter &#123; it.startsWith(&quot;kill_count_&quot;) &#125;.forEach &#123; key -&gt;
+        stats[key] &#x3D; player.getDataContainer().get(key).cint
+    &#125;
+
+    if (stats.isEmpty()) &#123;
+        list.add(&quot;你还没有击杀任何怪物&quot;)
+    &#125; else &#123;
+        list.add(&quot;你的击杀统计如下&quot;)
+        stats.forEach &#123; (key, value) -&gt;
+            list.add(&quot;$&#123;key.substringAfter(&quot;kill_count_&quot;)&#125;: $value&quot;)
+        &#125;
+    &#125;
+
+    return list
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在 <code>showStats</code> 函数中，我们首先创建一个空的字符串列表 <code>list</code> 来存储统计数据。然后，我们创建一个哈希表 <code>stats</code> 来存储玩家的击杀统计信息。这里我们通过遍历玩家的数据容器的键，筛选出以 *”kill_count_”*开头的键，并将其关联的值存储到 <code>stats</code> 表中。</p>
+<p>如果玩家的统计数据为空，我们向 <code>list</code> 列表中添加一条文字信息，提示玩家尚未击杀任何怪物。否则，我们向 <code>list</code> 列表中添加一条文字信息，提示玩家的击杀统计数据如下。接着，我们遍历 <code>stats</code> 哈希表的键值对，并将统计数据格式化为适当的文本，添加到 <code>list</code> 列表中。    </p>
+<h2 id="4-结论"><a href="#4-结论" class="headerlink" title="4. 结论"></a>4. 结论</h2><p>通过跟踪和展示玩家的杀怪统计数据，我们可以为玩家提供有趣的游戏体验和深度互动。在本篇博客中，我们演示了如何设置玩家数据库连接、打开统计菜单和展示统计数据。这样的功能不仅可以提高游戏体验，还可以促进玩家之间的竞争和交流。</p>
+<p>希望这篇博客能够帮助你了解如何实现玩家击杀统计功能，并为你的游戏增添更多乐趣。如果你对这个话题有任何疑问或想法，请随时在评论中分享。谢谢阅读，祝你开发成功！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="../../2023/08/01/%E7%8E%A9%E5%AE%B6%E6%9D%80%E6%80%AA%E7%BB%9F%E8%AE%A1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-个人blog搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
